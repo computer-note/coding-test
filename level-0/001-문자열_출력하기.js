@@ -15,7 +15,7 @@ rl.on('line', function (line) {
 });
 
 /*****************
-  다른 사람의 풀이
+  다른 분들의 풀이
 ******************/
 function otherSolution1() {
 	//rl변수를 선언하지 않고 createInterface반환값에 바로 이벤트헨들러 등록하는 방법
