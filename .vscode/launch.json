@@ -12,7 +12,7 @@
 				"<node_internals>/**"
 			],
 			"console": "externalTerminal",
-			"program": "${workspaceFolder}\\level-0\\001-문자열_출력하기.js"
+			"program": "${workspaceFolder}\\${file}"
 		}
 	]
 }
