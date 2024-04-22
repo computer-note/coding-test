@@ -21,7 +21,7 @@ function mySolution(){
 ******************/
 function otherSolution(){
 	//배열에 저장된 각 문자열을 일일이 더하는 것이 아니라
-	//String.prototype.join 메서드를 사용
+	//Array.prototype.join 메서드를 사용
 	let input = [];
 
 	rl.on('line', function (line){
