@@ -46,4 +46,6 @@ function mySolution2(n) {
   n이 짝수라면 
     n 이하의 짝수인 모든 양의 정수의 제곱의 합을 return 하는 
 solution 함수를 작성해 주세요.
+
+https://school.programmers.co.kr/learn/courses/30/lessons/181935
 */
