@@ -5,7 +5,7 @@ const rl = readline.createInterface({
 });
 
 mySolution();
-otherSolution();
+
 function mySolution() {
 	rl.on('line', function (line) {
 		const number = Number(line);
