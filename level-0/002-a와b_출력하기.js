@@ -27,7 +27,7 @@ function otherSolution2() {
 	//더 많은 입력값에 대응할 수 있도록 더 일반적인 해답을 제시
 	let i = 0;
 	rl.on('line', function (line) {
-		for (const value of line.splie(' ')) {
+		for (const value of line.split(' ')) {
 			console.log(String.fromCharCode(97 + i) + " = " + Number(value));
 			++i;
 		}
