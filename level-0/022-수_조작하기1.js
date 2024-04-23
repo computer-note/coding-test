@@ -20,7 +20,7 @@ function otherSolution(n, control) {
 		w: 1, s: -1, d: 10, a: -10,
 	};
 
-	return [...controlMap].reduce((acc, controlChar) =>
+	return [...control].reduce((acc, controlChar) =>
 		acc += controlMap[controlChar], n);
 }
 
