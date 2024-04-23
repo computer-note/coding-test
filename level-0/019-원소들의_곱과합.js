@@ -15,6 +15,22 @@ function mySolution(num_list) {
 		//ts(1200) line terminator not permitted before arrow
 */
 
+/*****************
+  다른 분들의 풀이
+******************/
+function otherSolution(num_list) {
+	//한 번의 반복에 두 개의 계산을 모두 처리하는 방식
+	let accMul = 1;
+	let accSum = 0;
+
+	for(const num of num_list) {
+		accMul *= num;
+		accSum += num;
+	}
+
+	return accMul < accSum ** 2 ? 1 : 0;
+}
+
 /* 문제
 정수가 담긴 리스트 num_list가 주어질 때, 
   모든 원소들의 곱이 
