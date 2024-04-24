@@ -14,6 +14,7 @@ function mySolution(a, b, c) {
 
 	return sumArr.reduce((acc, cur) => acc *= cur);
 
+	//원소개 3개일 때에만 적용되는 한정적인 함수
 	function countSame(arr) {
 		const sameCntArr = Array(arr.length).fill(0);
 
@@ -47,6 +48,7 @@ function otherSolution(a, b, c) {
 
 	return result;
 
+	//원소개 3개일 때에만 적용되는 한정적인 함수
 	function countSame(arr) {
 		return arr.length - (new Set(arr).size) + 1;
 	}
