@@ -22,9 +22,10 @@ function mySolution(strings, n) {
   다른 분들의 풀이
 ******************/
 function otherSolution(strings, n) {
-	/* 매우 간결한 풀이
+	/*
 	1. sort 메서드의 compareFn만을 사용
 	2. String.prototype.localeCompare 메서드 사용
+	  note: locale
 	*/
 	return strings.sort((str1, str2) => {
 		return str1[n] === str2[n] ?
