@@ -49,10 +49,10 @@ function otherSolution2(numLog) {
 		.join('');
 
 	/* 
-	numLog
+	numLog => numLog[i]는 numLog.slice(1)[i]의 관계에서 prev를 표현한다.
 		IDX  0 1 2 3 4 5
 		ELEM A B C D E F  
-	numLog.slice(1)
+	numLog.slice(1) => numLog.slice(1)[i]는 numLog[i]와의 관계에서 cur을 표현한다.
 		IDX  0 1 2 3 4
 		ELEM B C D E F
 	*/

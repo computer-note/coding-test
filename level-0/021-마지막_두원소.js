@@ -8,7 +8,7 @@ function mySolution(num_list) {
 		lastNum - secondLastNum :
 		lastNum * 2;
 	
-	//부작용: 원본 배열이 수정된다.
+	//매개변수로 전달된 배열이 수정된다.
 	num_list.push(numToPush);
 
 	return num_list;
@@ -19,9 +19,7 @@ function mySolution(num_list) {
 ******************/
 function otherSolution(num_list) {
 	//reverse 메서드 활용
-	//reverse 메서드는 원본 배열을 수정한다.
-	//  -원본 배열의 순서가 뒤집힌다.
-	//  -원본 배열의 참조를 반환한다.
+	//reverse 메서드는 메서드를 호출한 배열을 수정한다.
 	const [firstNum, secondNum] = [...num_list].reverse();
 
 	let numToInsert = firstNum > secondNum ?
