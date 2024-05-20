@@ -1,4 +1,3 @@
-
 function solution(a, b, n) {
 	const requiredEmptyBottleNum = a;
 	const rewardedNewBottleNum = b;
