@@ -1,6 +1,6 @@
 function solution(k, score) {
-	//점수 배열은 매일 가수가 노래하고 얻은 당일 점수의 배열이므로
-	//점수 배열의 길이는 가수들이 노래한 날의 개수이기도 하다
+	//점수 배열은 매일 각 가수가 노래하고 얻은 당일 점수의 배열이므로
+	//점수 배열의 길이는 모든 가수들이 노래한 날의 개수이기도 하다
 	const totalDay = score.length;
 
 	const kthScores = [];
