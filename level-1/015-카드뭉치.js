@@ -2,27 +2,27 @@ function mySolution(cards1, cards2, goal) {
    let goalIdx = 0,
       card1Idx = 0,
       card2Idx = 0;
-   let currentUsedCard1Num = 0,
-      currentUsedCard2Num = 0;
+   let usedCard1Num = 0,
+      usedCard2Num = 0;
    let result = '';
 
    while (true) {
       const goalToken = goal[goalIdx];
       //이번 반복에서 사용된 카드 개수
-      currentUsedCard1Num = 0;
-      currentUsedCard2Num = 0;
+      usedCard1Num = 0;
+      usedCard2Num = 0;
 
       while (card1Idx < cards1.length) {
          const card1Token = cards1[card1Idx];
 
          if (card1Token !== goalToken) {
-            //현재 토큰을 사용하지 않고
+            //현재 카드를 사용하지 않고
             //카드2로 진행
             break;
          }
 
-         //현재 토큰을 사용하고
-         ++currentUsedCard1Num;
+         //현재 카드을 사용하고
+         ++usedCard1Num;
          //다음 카드 토큰과 다음 goal 토큰으로 이동
          ++card1Idx;
          ++goalIdx;
@@ -35,7 +35,7 @@ function mySolution(cards1, cards2, goal) {
             break;
          }
 
-         ++currentUsedCard2Num;
+         ++usedCard2Num;
          ++card2Idx;
          ++goalIdx;
       }
@@ -45,7 +45,7 @@ function mySolution(cards1, cards2, goal) {
          break;
       }
 
-      if (currentUsedCard1Num === 0 && currentUsedCard2Num === 0) {
+      if (usedCard1Num === 0 && usedCard2Num === 0) {
          result = 'No';
          break;
       }
