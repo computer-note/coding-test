@@ -2,55 +2,66 @@ const result = solution('12zeroonetwo12');
 console.log(result);
 
 function solution(s) {
-	const wordToNumberMap = new Map([
-		['zero', '0'], ['one', '1'], ['two', '2'],
-		['three', '3'], ['four', '4'], ['five', '5'],
-		['six', '6'], ['seven', '7'], ['eight', '8'],
-		['nine', '9'],
-	]);
+  const wordToNumberMap = new Map([
+    ['zero', '0'],
+    ['one', '1'],
+    ['two', '2'],
+    ['three', '3'],
+    ['four', '4'],
+    ['five', '5'],
+    ['six', '6'],
+    ['seven', '7'],
+    ['eight', '8'],
+    ['nine', '9'],
+  ]);
 
-	const wordAndNumberTokens = tokenize(s);
-	const numberTokens = wordAndNumberTokens.map(token =>
-		isNumber(token) ? wordToNumberMap.get(token) : token
-	);
+  //'onetwo230' => ['one', 'two', '2', '3', '0']
+  const wordAndNumberTokens = tokenizeByWords(s, [
+    ...wordToNumberMap.keys(),
+  ]);
 
-	return Number(numberTokens.join(''));
+  //['one', 'two', '2', '3', '0'] => ['1', '2', '2', '3', '0']
+  const numberTokens = wordAndNumberTokens.map(token =>
+    canConvertToNum(token) ? token : wordToNumberMap.get(token)
+  );
 
-	//'onetwo230' => ['one', 'two', '2', '3', '0']
-	function tokenize(s) {
-		const words = [...wordToNumberMap.keys()];
-		const tokens = [];
+  return Number(numberTokens.join(''));
 
-		let curPos = 0
-		while (curPos < s.length) {
-			const curChar = s[curPos];
-			if (isNumber(curChar)) {
-				for(const word of words) {
-					let fullMatch = true;
-					for(let i = 0; i < word.length; ++i) {
-						if(s[curPos + i] !== word[i]) {
-							fullMatch = false;
-							break;
-						}
-					}
-					if(fullMatch) {
-						tokens.push(word);
-						curPos += word.length;
-						break;
-					}
-				} 
-			} else {
-				tokens.push(curChar);
-				++curPos;
-			}
-		}
+  function tokenizeByWords(s, words) {
+    const tokens = [];
 
-		return tokens;
-	}
+    let curPos = 0;
+    while (curPos < s.length) {
+      const curChar = s[curPos];
+      if (canConvertToNum(curChar)) {
+        tokens.push(curChar);
+        ++curPos;
+      } else {
+        for (const word of words) {
+          let fullMatch = true;
 
-	function isNumber(s){
-		return Number.isNaN(Number(s));
-	}
+          for (let i = 0; i < word.length; ++i) {
+            if (s[curPos + i] !== word[i]) {
+              fullMatch = false;
+              break;
+            }
+          }
+
+          if (fullMatch) {
+            tokens.push(word);
+            curPos += word.length;
+            break;
+          }
+        }
+      }
+    }
+
+    return tokens;
+  }
+
+  function canConvertToNum(character) {
+    return !Number.isNaN(Number(character));
+  }
 }
 
 /* 숫자 문자열과 영단어
