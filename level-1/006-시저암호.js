@@ -1,35 +1,42 @@
-const result = solution("abcdxyzXYZ", 1);
-console.log(result);
+const shiftCharacter = (function () {
+  const CHAR_A_CODE_POINT = 'A'.codePointAt(0);
+  const CHAR_a_CODE_POINT = 'a'.codePointAt(0);
+
+  function shiftCharacter(char, offset) {
+    const baseCodePoint = isUpperCase(char)
+      ? CHAR_A_CODE_POINT
+      : CHAR_a_CODE_POINT;
+
+    //map to range [0, 25]
+    const normalized = char.codePointAt(0) - baseCodePoint;
+
+    //shift character
+    const offsetApplied = (normalized + offset) % 26;
+
+    //recover case
+    return String.fromCodePoint(offsetApplied + baseCodePoint);
+  }
+
+  function isUpperCase(char) {
+    return char === char.toUpperCase();
+  }
+
+  return shiftCharacter;
+})();
 
 function solution(s, n) {
-	const encodedCharacters = [...s].map(c =>
-		c === ' ' ? c : caesarEncode(c, n)
-	);
+  const caesarEncodedChars = [...s].map(c =>
+    c === ' ' ? c : shiftCharacter(c, n)
+  );
 
-	return encodedCharacters.join('');
+  return caesarEncodedChars.join('');
 }
 
-function caesarEncode(char, offset) {
-	let caseBaseCharCode =
-		(char === char.toUpperCase() ?
-			'A' : 'a')
-			.codePointAt(0);
-
-	//map to range [0, 25]
-	let normalizedCharCode =
-		char.codePointAt(0) - caseBaseCharCode;
-
-	//caesar encode
-	normalizedCharCode =
-		(normalizedCharCode + offset) % 26;
-
-	//recover case 
-	return String.fromCodePoint(
-		normalizedCharCode + caseBaseCharCode);
-}
+const result = solution('abcdxyzXYZ', 1);
+console.log(result);
 
 /* 처음 실수한 부분
-	//map to range [1, 26]
+	//map to range [1, 26] <== 실수
 	let normalizedCharCode =
 		char.codePointAt(0) - caseBaseCharCode + 1;
 
