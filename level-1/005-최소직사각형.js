@@ -1,10 +1,10 @@
 function solution(sizes) {
-	const longestSide = Math.max(...sizes.flat());
-	const shorterSides = sizes.map(([side1, side2]) => 
-		Math.min(side1, side2));
-	const longestOfShorterSides = Math.max(...shorterSides);
+  const longestSide = Math.max(...sizes.flat());
+  const shorterSides = sizes.map(([side1, side2]) =>
+    Math.min(side1, side2)
+  );
 
-	return longestSide * longestOfShorterSides;
+  return longestSide * Math.max(...shorterSides);
 }
 
 /* 문제: 최소직사각형
