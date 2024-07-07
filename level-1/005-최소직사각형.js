@@ -7,6 +7,26 @@ function solution(sizes) {
   return longestSide * Math.max(...shorterSides);
 }
 
+/*****************
+  다른 분들의 풀이
+******************/
+function otherSolution(sizes) {
+  //아이디어
+  // 1. 직사각형 배열을 [짧은 변, 긴 변] 형태로 맞춘다.
+  // 2. 짧은 변에서 가장 긴 변을, 긴 변에서 가장 긴 변을 구한다.
+  // 3. 위에서 구한 두 변을 곱하여 반환한다.
+  const sortedSizes = sizes.map(size => size.sort((a, b) => a - b));
+
+  let maxSide1 = 0;
+  let maxSide2 = 0;
+  for (const [side1, side2] of sortedSizes) {
+    maxSide1 = Math.max(maxSide1, side1);
+    maxSide2 = Math.max(maxSide2, side2);
+  }
+
+  return maxSide1 * maxSide2;
+}
+
 /* 문제: 최소직사각형
 명함 지갑을 만드는 회사에서 지갑의 크기를 정하려고 합니다. 
 다양한 모양과 크기의 명함들을 모두 수납할 수 있으면서, 
